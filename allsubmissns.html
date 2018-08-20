@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>
+        Submissions
+    </title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <script src="statofic/bootstrap.min.js"></script>
+    <script src="statofic/scripts/jquery-1.9.1.min.js"></script>
+    <script src='https://www.gstatic.com/firebasejs/5.3.1/firebase.js'></script>
+    <link href='https://fonts.googleapis.com/css?family=calibri' rel='stylesheet' type='text/css'>
+
+    <style>
+        /*Not working yet*/
+        .submit_class {
+            color:#000000;
+        }
+        body{
+            background-size: cover;
+            background: url("Images/technology!.png") repeat;
+	        /*background-color: #f8f8f8;*/
+            font-family: 'calibri';
+        }
+        .vertical-offset-100{
+            padding-top:100px;
+        }
+        .navbar-login
+        {
+            width: 305px;
+            padding: 10px;
+            padding-bottom: 0px;
+        }
+        .navbar-login-session
+        {
+            padding: 10px;
+            padding-bottom: 0px;
+            padding-top: 0px;
+        }
+        .icon-size
+        {
+            font-size: 100px;
+        }
+        #social:hover
+        {
+    		-webkit-transform:scale(1.1);
+            -moz-transform:scale(1.1);
+            -o-transform:scale(1.1);
+	    }
+        #social
+        {
+			-webkit-transform:scale(0.8);
+                /* Browser Variations: */
+            -moz-transform:scale(0.8);
+            -o-transform:scale(0.8);
+            -webkit-transition-duration: 0.5s;
+            -moz-transition-duration: 0.5s;
+            -o-transition-duration: 0.5s;
+		}
+            .circular
+            {
+            margin:auto;
+            width: 120px;
+            height: 120px;
+            border-radius: 150px;
+            -webkit-border-radius: 150px;
+            -moz-border-radius: 150px;
+            }
+    </style>
+
+</head>
+<body>
+<form id="form1">
+
+    <div id="header" style="margin-top:36px; width:80%; margin-left:auto; margin-right:auto; text-align:center;">
+        <div style="width:100%; font-weight:700; font-size:50px; ">
+            Statofic Club
+        </div>
+        Developed by <a href="https://github.com/adu3110">@dt</a>
+        <br/>
+        <br/>
+        <div id="buttons" style="width:100%;">
+             <input type="button" id="submit" class="btn btn-primary" value="Explore" style="margin-left:10px; margin-right:10px;background: transparent;color: #0099CC;" onclick="window.location='index.html';"/>
+             <!--<input type="button" id="submit" class="btn btn-primary" value="Submit" style="margin-left:10px; margin-right:10px;" OnClick="submit_Click"/>-->
+        </div>
+    </div>
+
+    <div style="width:80%; margin-left:auto; margin-right:auto; margin-top:36px; margin-bottom:120px; background-color:#ffffff; height:auto;">
+
+    <div class="container" style="margin-bottom:51px; width:100%; background-color:#f9f9f9; border:1px solid rgba(0,0,0,0.1);">
+        <div class="row" style="margin-left:auto; margin-right:auto; width: 100%; margin-top: 20px;margin-bottom: 20px;">
+            <div class="col-md-6" style="width:100%;">
+            <fieldset style="margin-left:auto; margin-right:auto; width:90%;">
+
+                <div class="form-group">
+                <label id="result_label" class="control-label" Text="Please Enter all the Fields" Font-Bold="true"/>
+                </div>
+
+            <br />
+                <!-- Text input-->
+                <div class="form-group">
+                <label class="control-label">Publication/Thesis Work</label>
+                <div class="">
+                    <input type="text" id="Title" TextMode="SingleLine" placeholder="Working/Final Title" class="form-control"/>
+                </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                <label class="control-label">Name of Journal (if Published)</label>
+                <div class="">
+                    <input type="text" id="namejournal" TextMode="SingleLine" placeholder="Ex- Elsevier, Journal of Finance etc." class="form-control"/>
+                </div>
+                </div>
+                
+                <!-- Text input-->
+                <div class="form-group">
+                <label class="control-label">Abstract</label>
+                <div class="">
+                <!--<input type="textarea" id="pubabstract" placeholder="" class="form-control"/>-->
+                <textarea id="pubabstract" placeholder="" rows="2" class="form-control"></textarea>
+                </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                <label class="control-label">Tech Platform(if implemented/Simulated/Prototyped)</label>
+                <div class="">
+                    <input type="text" id="pubplatform" TextMode="SingleLine" placeholder="Ex- Visual Studio Code" class="form-control"/>
+                </div>
+                </div>
+
+                <div class="form-group">
+                <label class="control-label">No.of Authors</label>
+                <div class="">
+                    <input type="text" id="authors" placeholder="Enter numbers Ex- 2" class="form-control"/>
+                </div>
+                </div>
+    
+                <!--Text input
+
+                <div class="form-group">
+                <label class="control-label">No.of Authors</label>
+                <div class="">
+                <input type="text" id="authors" TextMode="SingleLine" placeholder="" class="form-control"/>
+                </div>
+                </div>-->
+    
+                <!-- Text input-->
+                <div class="form-group">
+                <label class="control-label">Languages Used</label>
+                <div class="">
+                    <table style="width:100%">
+                        <tr>
+                            <td><input type="checkbox" id="x1" value="C/C++" />&nbsp;&nbsp;<label for="cb1">C/C++</label></td>
+                            <td><input type="checkbox" id="x2" value="Java" />&nbsp;&nbsp;<label for="cb2">Java</label></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" id="x3" value="Python" />&nbsp;&nbsp;<label for="cb3">Python</label></td>
+                            <td><input type="checkbox" id="x4" value="R" />&nbsp;&nbsp;<label for="cb4">R</label></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" id="x5" value="django" />&nbsp;&nbsp;<label for="cb5">django</label></td>
+                            <td><input type="checkbox" id="x6" value="node.js" />&nbsp;&nbsp;<label for="cb6">node.js</label></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" id="x9" value="Ruby/Ruby On Rails" />&nbsp;&nbsp;<label for="cb9">Ruby</label></td>
+                            <td><input type="checkbox" id="x10" value="Other" />&nbsp;&nbsp;<label for="cb10">Other (Please specify in Description)</label></td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group col-sm-6">
+                <label id="Label1" class="control-label">Document Type &nbsp;</label>
+                <select class="" id="DocumentType">
+                    <option value="Conference Paper">Conference Paper</option>
+                    <option value="Jornal Paper">Journal Paper</option>
+                    <option value="Thesis Work">Thesis Work</option>
+                    <option value="Article/Algorithm">Article/Algorithm</option>
+                </select>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group col-sm-6">
+                <label id="Label2" class="Time taken">Time Taken &nbsp;</label>
+                <select class="" id="timetaken">
+                    <option value="1-2 months">1-2 months</option>
+                    <option value="2-3 months">2-3 months</option>
+                    <option value="3-4 months">3-4 months</option>
+                    <option value=">4 months">>4 months</option>
+                </select>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group col-sm-6">
+                <label class="control-label">Area of Interest</label>
+                <select class="" id="areaofinterest">
+                    <option value=""></option>
+                    <option value="Mix">Mix</option>
+                    <option value="Statistics">Statistics</option>
+                    <option value="Machine Learning">Machine Learning</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Optimization">Optimization</option>
+                    <option value="Big Data">Big Data</option>
+                    <option value="Economics">Economics</option>
+                    <option value="Game Theory">Game Theory</option>
+                    <option value="Measure Theory">Measure Theory</option>
+                    <option value="Linear Algebra">Linear Algebra</option>
+                    <option value="Intellectual Properties">Intellectual Properties</option>
+                    <option value="Stochastic Finance">Stochastic Finance</option>
+                    <option value="Quantitative Finace">Quantitative Finace</option>
+                    <option value="Finance and Management(Risk mgmt..etc)">Finance and Management(Risk mgmt..etc)</option>
+                </select>
+                </div>                
+
+                <!-- Text input-->
+                <div class="form-group col-sm-6">
+                <label class="control-label">Country</label>
+                <select class="" id="pubCountry">
+                    <option value="Other">Other</option>
+                    <option value="Afghanistan">Afghanistan</option>
+                    <option value="Albania">Albania</option>
+                    <option value="Algeria">Algeria</option>
+                    <option value="Andorra">Andorra</option>
+                    <option value="Angola">Angola</option>
+                    <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Armenia">Armenia</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Austria">Austria</option>
+                    <option value="Azerbaijan">Azerbaijan</option>
+                    <option value="Bahamas">Bahamas</option>
+                    <option value="Bahrain">Bahrain</option>
+                    <option value="Bangladesh">Bangladesh</option>
+                    <option value="Barbados">Barbados</option>
+                    <option value="Belarus">Belarus</option>
+                    <option value="Belgium">Belgium</option>
+                    <option value="Belize">Belize</option>
+                    <option value="Benin">Benin</option>
+                    <option value="Bhutan">Bhutan</option>
+                    <option value="Bolivia">Bolivia</option>
+                    <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                    <option value="Botswana">Botswana</option>
+                    <option value="Brazil">Brazil</option>
+                    <option value="Brunei">Brunei</option>
+                    <option value="Bulgaria">Bulgaria</option>
+                    <option value="Burkina Faso">Burkina Faso</option>
+                    <option value="Burundi">Burundi</option>
+                    <option value="Cabo Verde">Cabo Verde</option>
+                    <option value="Cambodia">Cambodia</option>
+                    <option value="Cameroon">Cameroon</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Central African Republic">Central African Republic</option>
+                    <option value="Chad">Chad</option>
+                    <option value="Chile">Chile</option>
+                    <option value="China">China</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Comoros">Comoros</option>
+                    <option value="Congo">Congo</option>
+                    <option value="Costa Rica">Costa Rica</option>
+                    <option value="Cote d'Ivoire">Cote d'Ivoire</option>
+                    <option value="Croatia">Croatia</option>
+                    <option value="Cuba">Cuba</option>
+                    <option value="Cyprus">Cyprus</option>
+                    <option value="Czech Republic">Czech Republic</option>
+                    <option value="Denmark">Denmark</option>
+                    <option value="Djibouti">Djibouti</option>
+                    <option value="Dominica">Dominica</option>
+                    <option value="Dominican Republic">Dominican Republic</option>
+                    <option value="Ecuador">Ecuador</option>
+                    <option value="Egypt">Egypt</option>
+                    <option value="El Salvador">El Salvador</option>
+                    <option value="Equatorial Guinea">Equatorial Guinea</option>
+                    <option value="Eritrea">Eritrea</option>
+                    <option value="Estonia">Estonia</option>
+                    <option value="Ethiopia">Ethiopia</option>
+                    <option value="Fiji">Fiji</option>
+                    <option value="Finland">Finland</option>
+                    <option value="France">France</option>
+                    <option value="Gabon">Gabon</option>
+                    <option value="Gambia">Gambia</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Ghana">Ghana</option>
+                    <option value="Greece">Greece</option>
+                    <option value="Grenada">Grenada</option>
+                    <option value="Guatemala">Guatemala</option>
+                    <option value="Guinea">Guinea</option>
+                    <option value="Guinea-Bissau">Guinea-Bissau</option>
+                    <option value="Guyana">Guyana</option>
+                    <option value="Haiti">Haiti</option>
+                    <option value="Honduras">Honduras</option>
+                    <option value="Hungary">Hungary</option>
+                    <option value="Iceland">Iceland</option>
+                    <option value="India">India</option>
+                    <option value="Indonesia">Indonesia</option>
+                    <option value="Iran">Iran</option>
+                    <option value="Iraq">Iraq</option>
+                    <option value="Ireland">Ireland</option>
+                    <option value="Israel">Israel</option>
+                    <option value="Italy">Italy</option>
+                    <option value="Jamaica">Jamaica</option>
+                    <option value="Japan">Japan</option>
+                    <option value="Jordan">Jordan</option>
+                    <option value="Kazakhstan">Kazakhstan</option>
+                    <option value="Kenya">Kenya</option>
+                    <option value="Kiribati">Kiribati</option>
+                    <option value="Kosovo">Kosovo</option>
+                    <option value="Kuwait">Kuwait</option>
+                    <option value="Kyrgyzstan">Kyrgyzstan</option>
+                    <option value="Laos">Laos</option>
+                    <option value="Latvia">Latvia</option>
+                    <option value="Lebanon">Lebanon</option>
+                    <option value="Lesotho">Lesotho</option>
+                    <option value="Liberia">Liberia</option>
+                    <option value="Libya">Libya</option>
+                    <option value="Liechtenstein">Liechtenstein</option>
+                    <option value="Lithuania">Lithuania</option>
+                    <option value="Luxembourg">Luxembourg</option>
+                    <option value="Macedonia">Macedonia</option>
+                    <option value="Madagascar">Madagascar</option>
+                    <option value="Malawi">Malawi</option>
+                    <option value="Malaysia">Malaysia</option>
+                    <option value="Maldives">Maldives</option>
+                    <option value="Mali">Mali</option>
+                    <option value="Malta">Malta</option>
+                    <option value="Marshall Islands">Marshall Islands</option>
+                    <option value="Mauritania">Mauritania</option>
+                    <option value="Mauritius">Mauritius</option>
+                    <option value="Mexico">Mexico</option>
+                    <option value="Micronesia">Micronesia</option>
+                    <option value="Moldova">Moldova</option>
+                    <option value="Monaco">Monaco</option>
+                    <option value="Mongolia">Mongolia</option>
+                    <option value="Montenegro">Montenegro</option>
+                    <option value="Morocco">Morocco</option>
+                    <option value="Mozambique">Mozambique</option>
+                    <option value="Myanmar">Myanmar</option>
+                    <option value="Namibia">Namibia</option>
+                    <option value="Nauru">Nauru</option>
+                    <option value="Nepal">Nepal</option>
+                    <option value="Netherlands">Netherlands</option>
+                    <option value="New Zealand">New Zealand</option>
+                    <option value="Nicaragua">Nicaragua</option>
+                    <option value="Niger">Niger</option>
+                    <option value="Nigeria">Nigeria</option>
+                    <option value="North Korea">North Korea</option>
+                    <option value="Norway">Norway</option>
+                    <option value="Oman">Oman</option>
+                    <option value="Pakistan">Pakistan</option>
+                    <option value="Palau">Palau</option>
+                    <option value="Palestine">Palestine</option>
+                    <option value="Panama">Panama</option>
+                    <option value="Papua New Guinea">Papua New Guinea</option>
+                    <option value="Paraguay">Paraguay</option>
+                    <option value="Peru">Peru</option>
+                    <option value="Philippines">Philippines</option>
+                    <option value="Poland">Poland</option>
+                    <option value="Portugal">Portugal</option>
+                    <option value="Qatar">Qatar</option>
+                    <option value="Romania">Romania</option>
+                    <option value="Russia">Russia</option>
+                    <option value="Rwanda">Rwanda</option>
+                    <option value="St. Kitts and Nevis">St. Kitts and Nevis</option>
+                    <option value="St. Lucia">St. Lucia</option>
+                    <option value="St. Vincent and The Grenadines">St. Vincent and The Grenadines</option>
+                    <option value="Samoa">Samoa</option>
+                    <option value="San Marino">San Marino</option>
+                    <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                    <option value="Saudi Arabia">Saudi Arabia</option>
+                    <option value="Senegal">Senegal</option>
+                    <option value="Serbia">Serbia</option>
+                    <option value="Seychelles">Seychelles</option>
+                    <option value="Sierra Leone">Sierra Leone</option>
+                    <option value="Singapore">Singapore</option>
+                    <option value="Slovakia">Slovakia</option>
+                    <option value="Slovenia">Slovenia</option>
+                    <option value="Solomon Islands">Solomon Islands</option>
+                    <option value="Somalia">Somalia</option>
+                    <option value="South Africa">South Africa</option>
+                    <option value="South Korea">South Korea</option>
+                    <option value="South Sudan">South Sudan</option>
+                    <option value="Spain">Spain</option>
+                    <option value="Sri Lanka">Sri Lanka</option>
+                    <option value="Sudan">Sudan</option>
+                    <option value="Suriname">Suriname</option>
+                    <option value="Swaziland">Swaziland</option>
+                    <option value="Sweden">Sweden</option>
+                    <option value="Switzerland">Switzerland</option>
+                    <option value="Syria">Syria</option>
+                    <option value="Taiwan">Taiwan</option>
+                    <option value="Tajikistan">Tajikistan</option>
+                    <option value="Tanzania">Tanzania</option>
+                    <option value="Thailand">Thailand</option>
+                    <option value="Timor-Leste">Timor-Leste</option>
+                    <option value="Togo">Togo</option>
+                    <option value="Tonga">Tonga</option>
+                    <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                    <option value="Tunisia">Tunisia</option>
+                    <option value="Turkey">Turkey</option>
+                    <option value="Turkmenistan">Turkmenistan</option>
+                    <option value="Tuvalu">Tuvalu</option>
+                    <option value="Uganda">Uganda</option>
+                    <option value="Ukraine">Ukraine</option>
+                    <option value="United Arab Emirates">United Arab Emirates</option>
+                    <option value="UK">UK</option>
+                    <option value="USA">USA</option>
+                    <option value="Uruguay">Uruguay</option>
+                    <option value="Uzbekistan">Uzbekistan</option>
+                    <option value="Vanuatu">Vanuatu</option>
+                    <option value="Vatican City">Vatican City</option>
+                    <option value="Venezuela">Venezuela</option>
+                    <option value="Vietnam">Vietnam</option>
+                    <option value="Yemen">Yemen</option>
+                    <option value="Zambia">Zambia</option>
+                    <option value="Zimbabwe">Zimbabwe</option>
+                </select>
+                </div>
+                <br />
+                <br />
+
+                <!-- Text input-->
+                <div class="form-group">
+                <label class="control-label">Organisation Name</label>
+                <div class="">
+                    <input type="text" id="userOrganisationName" placeholder="Enter the name of the Organisation you are working with." class="form-control"/>
+                </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                <label class="control-label">Contact Email</label>
+                <div class="">
+                    <input type="text" id="usercontact" placeholder="Enter an email where queries can be sent." class="form-control"/>
+                </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                <label class="control-label">Important Website Links</label>
+                <div class="">
+                    <input type="text" id="userlinks" placeholder="Insert comma-separated links" class="form-control"/>
+                </div>
+                </div>
+            <br />
+
+            <div class="upload-btn-wrapper">
+                <button class="btn">"Upload file "</button>
+                <input type="file" name="myfile" />
+            </div>
+            <br />
+                <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="pull-right">
+                    <!--<button type="submit" class="btn btn-default">Cancel</button>-->
+                    <input type="button" id="pub-submit" class="btn btn-primary" value="Submit"/>
+                    </div>
+                </div>
+                </div>
+
+            </fieldset>
+        </div><!-- /.col-lg-12 -->
+    </div><!-- /.row -->
+    </div><!--/.container -->
+    </div>
+</form>
+       <!-- Social Footer, Colour Matching Icons -->
+
+<div id="footer" style="width: 100%; background-color:#ffffff; border-top:1px solid rgba(0,0,0,0.1); bottom: 0">
+    <div style="width:100%; padding-top:20px; padding-left:20px; padding-right:20px; padding-bottom:10px; float:left;">
+        <div style="width:20%; float:left; text-align:center;">
+            <img class="circular" src="Images/adi.jpg" />
+        </div>
+        <div style="width:70%; padding:10px; float:right;">
+            <p>
+                Ola, My name is Aditi<br/>
+                I am a human trying to find my identity in my codes!!!! :)<br/>
+                “I believe that everything under the sun can be viewed as a matrix element.
+                Relations define equations and equations forms matrix.”
+            </p>
+        </div>
+    </div>
+    <div style="width:100%;">
+        <p style="padding-top:10px; margin: 0 0 0px; text-align:center;">- @diti &copy; 2018 -</p>
+        <br />
+        <div style="margin-left:auto; margin-right:auto; text-align:center; padding-top:0px; padding-bottom:20px;">
+            <a href="https://github.com/adu3110"><img id="I1" src="Images/github-mark.png" width="40" height="30" class="fa fa-facebook-square fa-3x social-tw"/></a>
+            <a href="https://www.linkedin.com/in/aditi-tiwari-69082b75/"><img id="I2" src="Images/linkedin.png" width="30" height="30" class="fa fa-facebook-square fa-3x social-tw"/></a>
+            <a href="https://plus.google.com/+AditiTiwari"><img id="I3" src="Images/google-plus-icon.png" width="30" height="30" class="fa fa-google-plus-square fa-3x social-gp"/></a>
+            <a href="mailto:aditi.jec31@gmail.com"><img id="I4" src="Images/Electronic.mail.png" width="30" height="30" class="fa fa-envelope-square fa-3x social-em"/></a>
+            <a href="https://www.patreon.com/home"><img id="I5" src="Images/Patreon.png" width="30" height="30" class="fa fa-envelope-square fa-3x social-em"/></a>
+        </div>
+    </div>
+ </div>
+
+<script>
+    var myDataRef = new Firebase('https://statofic.club.firebaseio.com//display-Publications');
+   /** @uthor: Aditi Tiwari
+    * Function to submit an entry into the databse
+   */
+    var submission= $('#pub-submit').click(function () {
+        console.log("inside function");
+        var name = $('#pub-name').val();
+        var desc = $('#pub-abs').val();
+        var lang_list='';
+        for(var i=1;i<=8;i++)
+        {
+            var lang_id = "#cb"+i;
+            if($(lang_id).is(":checked"))
+            {
+                lang_list+= $(lang_id).val() +",";
+            }
+        }
+        var time = $('#pub-time').val();
+        var areaofinterest=$('#areaofinterest').val();
+        var country=$('#pub-country').val();
+        var contact = $('#pub-contact').val();
+        var links = $('#pub-links').val();
+        console.log(lang_list);
+        try
+        {
+            console.log("before pushing");
+            myDataRef.push({name: name, desc: desc, time:time,
+                areaofinterest:areaofinterest, country:country,
+                        contact:contact, links:links
+                        });
+            $('#pub-name').val('');
+            $('#pub-abs').val('');
+            for(var i=1;i<=8;i++)
+            {
+                var lang_id = "#cb"+i;
+                if($(lang_id).is(":checked"))
+                {
+                    $(lang_id).attr('checked', false);
+                }
+            }
+            $('#pub-contact').val('');
+            $('#pub-links').val('');
+            alert("Publication/Thesis Submitted! Submit Another!!! ");
+        }
+        catch(err)
+        {
+            console.log(err);
+            alert("Error Submitting Publication/Thesis! Please try again!");
+        }
+    });
+   /** @uthor: Aditi Tiwari
+    * Function to fetch entries and form them in the table
+   */
+    // myDataRef.on('child_added', function(snapshot) {
+    // var message = snapshot.val();
+    // displayChatMessage(message.name, message.text);
+    // });
+    // function displayChatMessage(name, text) {
+    // $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+    // $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+    // };
+</script>
+<script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCCMXrhXInv4KRB5IvbXGOSOmJF0zqwPm0",
+    authDomain: "https://statofic.firebaseapp.com/",
+    databaseURL: "https://statofic.firebaseio.com",
+    projectId: "statofic",
+    storageBucket: "statofic.appspot.com",
+    messagingSenderId: "121079879605"
+  };
+  firebase.initializeApp(config);
+</script>
+<script>src="js/index.js"</script> 
+</body>
+</html>
+
