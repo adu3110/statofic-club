@@ -1,5 +1,5 @@
-# statofic-club
-The inspiration behind this web portal was to  create an online repository for students and professionals in the field of statistics, econometicians, finance professionals. This was a small step aiming towards collaboration of industry and academia within the field of Statistics and Economics and be updated with the projects and publications coming in and that too for free :)
+# statofic-club 
+The idea behind Statofic was to create an online platform for Statisticians, data scientist, mathematicians & coders to collaborate on the research work (publications, research projects, tools, articles related to the field) they are doing and to be updated about the fields in different languages. I got this motivation through one of my Japanese friend who faced an immense problem with the English language, so I thought to create an online open source web platform which could later be used as a repository.
 
 The following contributions are planned:
 1. Adding a login page
