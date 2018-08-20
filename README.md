@@ -4,4 +4,4 @@ The inspiration behind this web portal was to  create an online repository for s
 The following contributions are planned:
 1. Adding a login page
 2. Adding more languages and adding individual folders for contribution with a user login
-3. Implement search
+3. Implement elastic search
