@@ -6,22 +6,25 @@
     <title>
         Submissions
     </title>
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <script src="statofic/bootstrap.min.js"></script>
-    <script src="statofic/scripts/jquery-1.9.1.min.js"></script>
-    <script src='https://www.gstatic.com/firebasejs/5.3.1/firebase.js'></script>
-    <link href='https://fonts.googleapis.com/css?family=calibri' rel='stylesheet' type='text/css'>
+    
+<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 
+ 
     <style>
+        @import url(http://fonts.googleapis.com/css?family=Pacifico);
         /*Not working yet*/
         .submit_class {
             color:#000000;
         }
         body{
             background-size: cover;
-            background: url("Images/technology!.png") repeat;
+            height: auto;
+            max-width: 100%;
+            background-position: center;
+            background: url("images/tech1.jpg") repeat;
 	        /*background-color: #f8f8f8;*/
-            font-family: 'calibri';
+            font-family: 'Pacifico', cursive;
+            
         }
         .vertical-offset-100{
             padding-top:100px;
@@ -42,6 +45,27 @@
         {
             font-size: 100px;
         }
+        
+        .form-group{
+            background: transparent;
+            color:#000;
+            font-family:  'Pacifico', cursive;
+            font-size: 17px;
+            padding: 0.5em;
+            border-radius: 20px;
+        }
+
+        .btn-primary{
+            background: transparent;
+            color:#000;
+            border: 1;
+            font-family:  'Pacifico', cursive;
+            font-size: 17px;
+            padding: 0.5em;
+            border: 2px solid #c9e6ff;
+            border-radius: 20px;
+        }
+
         #social:hover
         {
     		-webkit-transform:scale(1.1);
@@ -67,21 +91,41 @@
             -webkit-border-radius: 150px;
             -moz-border-radius: 150px;
             }
+
+        .alert{
+            text-align: center;
+            padding: 10px;
+            background: #a9d3fd;
+            color: #000;
+            margin-bottom: 10px;
+            display: none;
+        }
     </style>
 
 </head>
 <body>
-<form id="form1">
+<body class="Site">
+        
+<link href="css/bootstrap.min.css" rel="stylesheet" />
+<script src="scripts/bootstrap.min.js"></script>
+<script src="scripts/jquery-1.9.1.min.js"></script>
+<script src='https://www.gstatic.com/firebasejs/5.3.1/firebase.js'></script>
+<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+
+<form id="submissionform" class = "js-form">
 
     <div id="header" style="margin-top:36px; width:80%; margin-left:auto; margin-right:auto; text-align:center;">
-        <div style="width:100%; font-weight:700; font-size:50px; ">
+        <div style="width:100%; font-weight:700; font-size:50px; font-family:  'Pacifico', cursive;">
             Statofic Club
         </div>
-        Developed by <a href="https://github.com/adu3110">@dt</a>
+        <div style="font-size:17px; font-family:  'Pacifico', cursive;">
+            Developed by <a href="https://github.com/adu3110">@dt</a>
+        </div>
+        
         <br/>
         <br/>
         <div id="buttons" style="width:100%;">
-             <input type="button" id="submit" class="btn btn-primary" value="Explore" style="margin-left:10px; margin-right:10px;background: transparent;color: #0099CC;" onclick="window.location='index.html';"/>
+             <input type="button" id="exploreBtn" class="btn btn-primary" value="Go Back!!" style="margin-left:10px; margin-right:10px;background: transparent;color: #0099CC;" onclick="window.location='index.html';"/>
              <!--<input type="button" id="submit" class="btn btn-primary" value="Submit" style="margin-left:10px; margin-right:10px;" OnClick="submit_Click"/>-->
         </div>
     </div>
@@ -92,10 +136,6 @@
         <div class="row" style="margin-left:auto; margin-right:auto; width: 100%; margin-top: 20px;margin-bottom: 20px;">
             <div class="col-md-6" style="width:100%;">
             <fieldset style="margin-left:auto; margin-right:auto; width:90%;">
-
-                <div class="form-group">
-                <label id="result_label" class="control-label" Text="Please Enter all the Fields" Font-Bold="true"/>
-                </div>
 
             <br />
                 <!-- Text input-->
@@ -132,9 +172,9 @@
                 </div>
 
                 <div class="form-group">
-                <label class="control-label">No.of Authors</label>
+                <label class="control-label">Names of Authors</label>
                 <div class="">
-                    <input type="text" id="authors" placeholder="Enter numbers Ex- 2" class="form-control"/>
+                    <input type="text" id="authors" placeholder="Enter names of authors (comma separated)" class="form-control"/>
                 </div>
                 </div>
     
@@ -165,10 +205,13 @@
                             <td><input type="checkbox" id="x6" value="node.js" />&nbsp;&nbsp;<label for="cb6">node.js</label></td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" id="x9" value="Ruby/Ruby On Rails" />&nbsp;&nbsp;<label for="cb9">Ruby</label></td>
-                            <td><input type="checkbox" id="x10" value="Other" />&nbsp;&nbsp;<label for="cb10">Other (Please specify in Description)</label></td>
+                            <td><input type="checkbox" id="x7" value="Ruby/Ruby On Rails" />&nbsp;&nbsp;<label for="cb9">Ruby</label></td>
+                            <td><input type="checkbox" id="x8" value="Other" />&nbsp;&nbsp;<label for="cb10">Other (Please specify in Description)</label></td>
                         </tr>
                     </table>
+                </div>
+                <div class="">
+                    <input type="text" id="OtherLang" placeholder="Other Languages" class="form-control"/>
                 </div>
                 </div>
 
@@ -198,7 +241,6 @@
                 <div class="form-group col-sm-6">
                 <label class="control-label">Area of Interest</label>
                 <select class="" id="areaofinterest">
-                    <option value=""></option>
                     <option value="Mix">Mix</option>
                     <option value="Statistics">Statistics</option>
                     <option value="Machine Learning">Machine Learning</option>
@@ -211,7 +253,7 @@
                     <option value="Linear Algebra">Linear Algebra</option>
                     <option value="Intellectual Properties">Intellectual Properties</option>
                     <option value="Stochastic Finance">Stochastic Finance</option>
-                    <option value="Quantitative Finace">Quantitative Finace</option>
+                    <option value="Quantitative Finance">Quantitative Finance</option>
                     <option value="Finance and Management(Risk mgmt..etc)">Finance and Management(Risk mgmt..etc)</option>
                 </select>
                 </div>                
@@ -445,18 +487,26 @@
                     <input type="text" id="userlinks" placeholder="Insert comma-separated links" class="form-control"/>
                 </div>
                 </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="control-label">If The Project Was Implementation Of Another Paper</label>
+                    <div class="">
+                        <input type="text" id="implementations" placeholder="Mention the paper and authors" class="form-control"/>
+                    </div>
+                    </div>
             <br />
 
             <div class="upload-btn-wrapper">
-                <button class="btn">"Upload file "</button>
-                <input type="file" name="myfile" />
+                <input type="file" name="myfile" id="uploadedFile"/>
             </div>
+
+            <div class="alert">Your submission has been saved</div>
             <br />
                 <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <div class="pull-right">
-                    <!--<button type="submit" class="btn btn-default">Cancel</button>-->
-                    <input type="button" id="pub-submit" class="btn btn-primary" value="Submit"/>
+                    <button type = 'submit' class="btn btn-primary">Submit</button>
+                    <!--<input type="button" id="pub-submit" class="btn btn-primary" value="Submit" onclick="submitForm();  return false;" />-->
                     </div>
                 </div>
                 </div>
@@ -472,9 +522,9 @@
 <div id="footer" style="width: 100%; background-color:#ffffff; border-top:1px solid rgba(0,0,0,0.1); bottom: 0">
     <div style="width:100%; padding-top:20px; padding-left:20px; padding-right:20px; padding-bottom:10px; float:left;">
         <div style="width:20%; float:left; text-align:center;">
-            <img class="circular" src="Images/adi.jpg" />
+            <img class="circular" src="images/adi.jpg" />
         </div>
-        <div style="width:70%; padding:10px; float:right;">
+        <div style="width:80%; padding:2px; font-size:18px; float:right; font-family:  'Pacifico', cursive;">
             <p>
                 Ola, My name is Aditi<br/>
                 I am a human trying to find my identity in my codes!!!! :)<br/>
@@ -487,92 +537,18 @@
         <p style="padding-top:10px; margin: 0 0 0px; text-align:center;">- @diti &copy; 2018 -</p>
         <br />
         <div style="margin-left:auto; margin-right:auto; text-align:center; padding-top:0px; padding-bottom:20px;">
-            <a href="https://github.com/adu3110"><img id="I1" src="Images/github-mark.png" width="40" height="30" class="fa fa-facebook-square fa-3x social-tw"/></a>
-            <a href="https://www.linkedin.com/in/aditi-tiwari-69082b75/"><img id="I2" src="Images/linkedin.png" width="30" height="30" class="fa fa-facebook-square fa-3x social-tw"/></a>
-            <a href="https://plus.google.com/+AditiTiwari"><img id="I3" src="Images/google-plus-icon.png" width="30" height="30" class="fa fa-google-plus-square fa-3x social-gp"/></a>
-            <a href="mailto:aditi.jec31@gmail.com"><img id="I4" src="Images/Electronic.mail.png" width="30" height="30" class="fa fa-envelope-square fa-3x social-em"/></a>
-            <a href="https://www.patreon.com/home"><img id="I5" src="Images/Patreon.png" width="30" height="30" class="fa fa-envelope-square fa-3x social-em"/></a>
+            <a href="https://github.com/adu3110"><img id="I1" src="images/github-mark.png" width="40" height="30" class="fa fa-facebook-square fa-3x social-tw"/></a>
+            <a href="https://www.linkedin.com/in/aditi-tiwari-69082b75/"><img id="I2" src="images/Linkedin.png" width="30" height="30" class="fa fa-facebook-square fa-3x social-tw"/></a>
+            <a href="https://plus.google.com/+AditiTiwari"><img id="I3" src="images/google-plus-icon.png" width="30" height="30" class="fa fa-google-plus-square fa-3x social-gp"/></a>
+            <a href="mailto:aditi.jec31@gmail.com"><img id="I4" src="images/Electronic.mail.png" width="30" height="30" class="fa fa-envelope-square fa-3x social-em"/></a>
+            <a href="https://www.patreon.com/home"><img id="I5" src="images/Patreon.png" width="30" height="30" class="fa fa-envelope-square fa-3x social-em"/></a>
         </div>
     </div>
  </div>
 
-<script>
-    var myDataRef = new Firebase('https://statofic.club.firebaseio.com//display-Publications');
-   /** @uthor: Aditi Tiwari
-    * Function to submit an entry into the databse
-   */
-    var submission= $('#pub-submit').click(function () {
-        console.log("inside function");
-        var name = $('#pub-name').val();
-        var desc = $('#pub-abs').val();
-        var lang_list='';
-        for(var i=1;i<=8;i++)
-        {
-            var lang_id = "#cb"+i;
-            if($(lang_id).is(":checked"))
-            {
-                lang_list+= $(lang_id).val() +",";
-            }
-        }
-        var time = $('#pub-time').val();
-        var areaofinterest=$('#areaofinterest').val();
-        var country=$('#pub-country').val();
-        var contact = $('#pub-contact').val();
-        var links = $('#pub-links').val();
-        console.log(lang_list);
-        try
-        {
-            console.log("before pushing");
-            myDataRef.push({name: name, desc: desc, time:time,
-                areaofinterest:areaofinterest, country:country,
-                        contact:contact, links:links
-                        });
-            $('#pub-name').val('');
-            $('#pub-abs').val('');
-            for(var i=1;i<=8;i++)
-            {
-                var lang_id = "#cb"+i;
-                if($(lang_id).is(":checked"))
-                {
-                    $(lang_id).attr('checked', false);
-                }
-            }
-            $('#pub-contact').val('');
-            $('#pub-links').val('');
-            alert("Publication/Thesis Submitted! Submit Another!!! ");
-        }
-        catch(err)
-        {
-            console.log(err);
-            alert("Error Submitting Publication/Thesis! Please try again!");
-        }
-    });
-   /** @uthor: Aditi Tiwari
-    * Function to fetch entries and form them in the table
-   */
-    // myDataRef.on('child_added', function(snapshot) {
-    // var message = snapshot.val();
-    // displayChatMessage(message.name, message.text);
-    // });
-    // function displayChatMessage(name, text) {
-    // $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
-    // $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
-    // };
-</script>
-<script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCCMXrhXInv4KRB5IvbXGOSOmJF0zqwPm0",
-    authDomain: "https://statofic.firebaseapp.com/",
-    databaseURL: "https://statofic.firebaseio.com",
-    projectId: "statofic",
-    storageBucket: "statofic.appspot.com",
-    messagingSenderId: "121079879605"
-  };
-  firebase.initializeApp(config);
-</script>
-<script>src="js/index.js"</script> 
+<script src="https://www.gstatic.com/firebasejs/5.4.0/firebase.js"></script>
+
+<script src="allsubmissions.js"></script> 
 </body>
 </html>
 
